@@ -20,24 +20,48 @@ const AccountList = ({ accountsData }) => {
   }
 
   return (
-    <div>
-      <h2>Accounts</h2>
-      <h3>Count : {accountsData.length}</h3>
-      <label htmlFor='balance'>Balance</label>
-      <input
-        type='number'
-        id='balance'
-        onChange={e => setBalance(e.target.value)}
-        value={balance}
-      />
-      <button disabled={!balance} onClick={handleSubmit} type='button'>
-        Submit
-      </button>
+    <div className='bg-white p-4 rounded shadow-lg'>
+      <h2 className='text-xl font-semibold mb-4'>Accounts</h2>
+      <h3 className='text-gray-600'>Count: {accountsData.length}</h3>
+      <div className='mt-4'>
+        <label
+          htmlFor='balance'
+          className='block text-sm font-medium text-gray-700'
+        >
+          Balance
+        </label>
+        <input
+          type='number'
+          id='balance'
+          onChange={e => setBalance(e.target.value)}
+          value={balance}
+          className='w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-indigo-300'
+        />
+        <button
+          disabled={!balance}
+          onClick={handleSubmit}
+          type='button'
+          className='mt-2 bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md'
+        >
+          Submit
+        </button>
+      </div>
 
       {accountsData.map((account, index) => (
-        <div key={account.id}>
-          Balance{index + 1} : {account.balance}
-          <button onClick={() => handleRemove(account.id)}>
+        <div
+          key={account.id}
+          className='mt-4 flex justify-between items-center border-b border-gray-300'
+        >
+          <span className='text-base font-medium items-center flex justify-between'>
+            Balance {index + 1} :
+            <span className='font-extrabold text-lg ml-3'>
+              {account.balance}
+            </span>
+          </span>
+          <button
+            onClick={() => handleRemove(account.id)}
+            className='text-red-500 hover:text-red-700'
+          >
             <TrashIcon />
           </button>
         </div>

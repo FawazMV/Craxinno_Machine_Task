@@ -13,8 +13,10 @@ import { calculateGraphData } from '../utils/helpers'
 const LineGraph = ({ accountsData, repaymentValue }) => {
   const data = calculateGraphData(accountsData, repaymentValue)
   return (
-    <div>
-      <h3>Balance of accounts after a number of months</h3>
+    <div className='bg-white p-4 rounded shadow-lg'>
+      <h3 className='text-xl font-semibold mb-4'>
+        Balance of accounts after a number of months
+      </h3>
       <ResponsiveContainer width='100%' height={400}>
         <LineChart
           data={data}
@@ -36,7 +38,7 @@ const LineGraph = ({ accountsData, repaymentValue }) => {
             contentStyle={{
               backgroundColor: '#111',
               border: 'none',
-              boxShadow: '2px 2px 5px rgba(255,255,255,0.3)'
+              boxShadow: '2px 2px 5px rgba(255, 255, 255, 0.3)'
             }}
             labelStyle={{ fontSize: 16, fontWeight: 'bold', color: '#ccc' }}
             itemStyle={{ fontSize: 14, color: '#ccc' }}
@@ -54,4 +56,5 @@ const LineGraph = ({ accountsData, repaymentValue }) => {
     </div>
   )
 }
+
 export default LineGraph

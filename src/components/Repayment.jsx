@@ -15,9 +15,23 @@ const Repayment = ({ accountsData, repaymentValue }) => {
   }
 
   return (
-    <div>
-      Initial Balance: {initialBalance}
-      <input type='text' value={repaymentValue} onChange={handleValueChange} />
+    <div className='bg-white p-4 rounded shadow-lg'>
+      <p className='text-lg font-semibold'>Initial Balance: {initialBalance}</p>
+      <div className='mt-4'>
+        <label
+          htmlFor='payment'
+          className='block text-sm font-medium text-gray-700'
+        >
+          Monthly Payment
+        </label>
+        <input
+          type='number'
+          value={repaymentValue}
+          id='payment'
+          onChange={handleValueChange}
+          className='w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-indigo-300'
+        />
+      </div>
     </div>
   )
 }
