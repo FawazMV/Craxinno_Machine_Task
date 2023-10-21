@@ -9,12 +9,13 @@ import {
   YAxis
 } from 'recharts'
 import { calculateGraphData } from '../utils/helpers'
+import { divStyle, headingText } from '../utils/commonStyles'
 
 const LineGraph = ({ accountsData, repaymentValue }) => {
   const data = calculateGraphData(accountsData, repaymentValue)
   return (
-    <div className='bg-white p-4 rounded shadow-lg'>
-      <h3 className='text-xl font-semibold mb-4'>
+    <div className={divStyle}>
+      <h3 className={headingText}>
         Balance of accounts after a number of months
       </h3>
       <ResponsiveContainer width='100%' height={400}>

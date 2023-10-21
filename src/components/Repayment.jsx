@@ -1,6 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { changeRepayment } from '../Redux/accountsSlice'
+import {
+  divStyle,
+  headingText,
+  inputbox,
+  lableStyle
+} from '../utils/commonStyles'
 
 const Repayment = ({ accountsData, repaymentValue }) => {
   const dispatch = useDispatch()
@@ -15,13 +21,10 @@ const Repayment = ({ accountsData, repaymentValue }) => {
   }
 
   return (
-    <div className='bg-white p-4 rounded shadow-lg'>
-      <p className='text-lg font-semibold'>Initial Balance: {initialBalance}</p>
+    <div className={divStyle}>
+      <p className={headingText}>Initial Balance: {initialBalance}</p>
       <div className='mt-4'>
-        <label
-          htmlFor='payment'
-          className='block text-sm font-medium text-gray-700'
-        >
+        <label htmlFor='payment' className={lableStyle}>
           Monthly Payment
         </label>
         <input
@@ -29,7 +32,7 @@ const Repayment = ({ accountsData, repaymentValue }) => {
           value={repaymentValue}
           id='payment'
           onChange={handleValueChange}
-          className='w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-indigo-300'
+          className={inputbox}
         />
       </div>
     </div>

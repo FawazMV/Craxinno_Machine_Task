@@ -2,6 +2,12 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { idGenerator } from '../utils/helpers'
 import { addAccount, removeAccount } from '../Redux/accountsSlice'
+import {
+  divStyle,
+  headingText,
+  inputbox,
+  lableStyle
+} from '../utils/commonStyles'
 
 const AccountList = ({ accountsData }) => {
   const dispatch = useDispatch()
@@ -15,19 +21,19 @@ const AccountList = ({ accountsData }) => {
     }
   }
 
-  const handleRemove = id => {
-    dispatch(removeAccount(id))
+  const handleRemove = acc => {
+    const res = confirm(`Do you want to remove amount ${acc.balance} ?`)
+    if (res) dispatch(removeAccount(acc.id))
   }
 
   return (
-    <div className='bg-white p-4 rounded shadow-lg'>
-      <h2 className='text-xl font-semibold mb-4'>Accounts</h2>
-      <h3 className='text-gray-600'>Count: {accountsData.length}</h3>
+    <div className={divStyle}>
+      <h2 className={headingText}>Accounts</h2>
+      <h3 className='text-gray-600 font-medium'>
+        Count: {accountsData.length}
+      </h3>
       <div className='mt-4'>
-        <label
-          htmlFor='balance'
-          className='block text-sm font-medium text-gray-700'
-        >
+        <label htmlFor='balance' className={lableStyle}>
           Balance
         </label>
         <input
@@ -35,7 +41,7 @@ const AccountList = ({ accountsData }) => {
           id='balance'
           onChange={e => setBalance(e.target.value)}
           value={balance}
-          className='w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-indigo-300'
+          className={inputbox}
         />
         <button
           disabled={!balance}
@@ -59,7 +65,7 @@ const AccountList = ({ accountsData }) => {
             </span>
           </span>
           <button
-            onClick={() => handleRemove(account.id)}
+            onClick={() => handleRemove(account)}
             className='text-red-500 hover:text-red-700'
           >
             <TrashIcon />

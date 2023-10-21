@@ -9,7 +9,7 @@ const App = () => {
   const { accounts, repayment } = useSelector(state => state.accounts)
 
   return (
-    <div className='flex  w-full flex-wrap gap-10 p-3 sm:p-10'>
+    <div className='flex w-full flex-wrap gap-10 p-3 sm:p-10'>
       <div>
         <AccountsList accountsData={accounts} />
       </div>
