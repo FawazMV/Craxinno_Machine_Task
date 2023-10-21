@@ -15,13 +15,13 @@ const LineGraph = ({ accountsData, repaymentValue }) => {
   const data = calculateGraphData(accountsData, repaymentValue)
   return (
     <div className={divStyle}>
-      <h3 className={headingText}>
+      <h3 className={headingText + ' mt-4'}>
         Balance of accounts after a number of months
       </h3>
-      <ResponsiveContainer width='100%' height={430}>
+      <ResponsiveContainer width='100%' height={400}>
         <LineChart
           data={data}
-          margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
+          margin={{ top: 20, right: 10, left: -20, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray='3 3' stroke='#555' />
           <XAxis

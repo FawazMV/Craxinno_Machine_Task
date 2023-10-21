@@ -12,7 +12,10 @@ export const calculateGraphData = (accounts, val) => {
     const totalBalance = accounts.reduce((total, acc) => (total += +acc.balance), 0)
     const dataPoints = [{ balance: totalBalance, index: 1 }];
 
-    for (let index = 2; index <= 12; index++) {
+    const width = window.innerWidth;
+    const max = (width < 700) ? 6 : 12
+
+    for (let index = 2; index <= max; index++) {
         let balance = totalBalance - val * (index);
         balance = balance < 0 ? 0 : balance;
         dataPoints.push({ balance, index });
