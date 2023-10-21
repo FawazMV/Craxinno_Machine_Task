@@ -10,7 +10,6 @@ export const idGenerator = (num) => {
 export const calculateGraphData = (accounts, val) => {
 
     const totalBalance = accounts.reduce((total, acc) => (total += +acc.balance), 0)
-    console.log(totalBalance, val)
     const dataPoints = [{ balance: totalBalance, index: 1 }];
 
     for (let index = 2; index <= 12; index++) {

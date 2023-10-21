@@ -18,7 +18,7 @@ const LineGraph = ({ accountsData, repaymentValue }) => {
       <h3 className={headingText}>
         Balance of accounts after a number of months
       </h3>
-      <ResponsiveContainer width='100%' height={400}>
+      <ResponsiveContainer width='100%' height={430}>
         <LineChart
           data={data}
           margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
