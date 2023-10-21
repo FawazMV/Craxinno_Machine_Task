@@ -1,19 +1,23 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { changeRepayment } from '../Redux/accountsSlice'
 
-const Repayment = ({ accounts, val, setVal }) => {
-  const initialBalance = accounts.reduce(
+const Repayment = ({ accountsData, repaymentValue }) => {
+  const dispatch = useDispatch()
+
+  const initialBalance = accountsData.reduce(
     (total, acc) => (total += +acc.balance),
     0
   )
 
   const handleValueChange = e => {
-    setVal(e.target.value)
+    dispatch(changeRepayment(e.target.value))
   }
 
   return (
     <div>
       Initial Balance: {initialBalance}
-      <input type='number' value={val} onChange={handleValueChange} />
+      <input type='text' value={repaymentValue} onChange={handleValueChange} />
     </div>
   )
 }

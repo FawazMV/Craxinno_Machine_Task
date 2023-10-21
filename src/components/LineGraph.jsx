@@ -8,8 +8,10 @@ import {
   XAxis,
   YAxis
 } from 'recharts'
+import { calculateGraphData } from '../utils/helpers'
 
-const LineGraph = ({ data }) => {
+const LineGraph = ({ accountsData, repaymentValue }) => {
+  const data = calculateGraphData(accountsData, repaymentValue)
   return (
     <div>
       <h3>Balance of accounts after a number of months</h3>
